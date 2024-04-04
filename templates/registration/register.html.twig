@@ -11,13 +11,11 @@
                 <fieldset class="mb-3">
                     <legend>Informations d'utilisateur</legend>
                     <div class="form-group">
-                        {{ form_row(registrationForm.username, {'label': 'Nom d\'utilisateur'}) }}
-                        {{ form_errors(registrationForm.username) }}
+                        {{ form_row(registrationForm.username) }}
                     </div>
 
                     <div class="form-group">
-                        {{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe'}) }}
-                        {{ form_errors(registrationForm.plainPassword) }}
+                        {{ form_row(registrationForm.plainPassword) }}
                     </div>
                 </fieldset>
 
@@ -25,8 +23,6 @@
                     <legend>Conditions d'utilisation</legend>
                     <div class="form-group">
                         {{ form_row(registrationForm.agreeTerms) }}
-                        {{ form_label(registrationForm.agreeTerms, 'J\'accepte les conditions générales') }}
-                        {{ form_errors(registrationForm.agreeTerms) }}
                     </div>
                 </fieldset>
 
