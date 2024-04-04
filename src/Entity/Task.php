@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TaskRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
 class Task
@@ -24,6 +25,11 @@ class Task
 
     #[ORM\Column]
     private ?\DateTimeImmutable $dateCrea = null;
+
+    public function __construct()
+    {
+        $this->dateCrea = \DateTimeImmutable::createFromInterface(new DateTime());
+    }
 
     public function getId(): ?int
     {
