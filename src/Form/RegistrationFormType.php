@@ -19,12 +19,13 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, ["label" => "Pseudo"])
+            ->add('firstname', TextType::class, ["label" => "Prénom"])
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => 'ok clause',
+                'label' => 'J\'accepte les conditions',
                 'mapped'      => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'Vous devez accepter les clauses.',
+                        'message' => 'Vous devez accepter les conditions.',
                     ]),
                 ],
             ])

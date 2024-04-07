@@ -1,0 +1,6 @@
+<div class="d-flex align-items-center float-end">
+<form method="post" action="{{ path('app_task_delete', {'id': task.id}) }}" onsubmit="return confirm('Voulez-vous vraiment supprimer cette tâche?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ task.id) }}">
+    <button class="btn btn-danger">Supprimer</button>
+</form>
+</div>
