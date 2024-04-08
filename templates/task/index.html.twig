@@ -18,17 +18,19 @@
         </thead>
         <tbody>
         {% for task in tasks %}
+            {% if task.user == app.user %}
             <tr>
                 <td>{{ task.id }}</td>
                 <td>{{ task.titre }}</td>
                 <td>{{ task.description }}</td>
-                <td>{{ task.statut ? 'Yes' : 'No' }}</td>
+                <td>{{ task.statut ? 'Oui' : 'Non' }}</td>
                 <td>{{ task.dateCrea ? task.dateCrea|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_task_show', {'id': task.id}) }}">Voir</a>
-                    <a href="{{ path('app_task_edit', {'id': task.id}) }}">éditer</a>
+                    <a href="{{ path('app_task_edit', {'id': task.id}) }}">Éditer</a>
                 </td>
             </tr>
+            {% endif %}
         {% else %}
             <tr>
                 <td colspan="6">Aucune tâche enregistrée</td>
