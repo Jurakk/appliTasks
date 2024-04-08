@@ -25,6 +25,13 @@ class TaskController extends AbstractController
     #[Route('/new', name: 'app_task_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        // Vérifier si l'utilisateur est authentifié
+        if (!$this->getUser()) {
+            // Rediriger vers la page de connexion ou afficher un message d'erreur
+            return $this->redirectToRoute('app_login');
+            // Ou : throw new AccessDeniedException('Accès refusé. Veuillez vous connecter.');
+        }
+        
         $task = new Task();
         $form = $this->createForm(TaskType::class, $task);
         $task->setUser($this->getUser());
